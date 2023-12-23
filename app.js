@@ -22,11 +22,14 @@ const router = express.Router();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin:[process.env.FRONTEND_URL],
-    methods: ["GET","POST", "PUT", "DELETE"],
-    credentials: true,
-}))
+
+app.use(
+    cors({
+      origin: [process.env.FRONTEND_URL],
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      credentials: true,
+    })
+  );
 
 
 app.use( "/api/v1/users",userRouter);
